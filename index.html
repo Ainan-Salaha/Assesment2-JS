@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assesment2-JS</title>
+</head>
+
+<body>
+    <h1 style="color: blueviolet; text-align: center;">Interview Day-2</h1>
+<hr>
+    <div class="main">
+        <h1>1.What is the use of setTimeout</h1>
+        <p>The setTimeout() is a method inside the window object, it calls the specified function or
+            evaluates a JavaScript expression provided as a string after a given time period for only once.<br>
+            We all have used alarms or reminders several times, this setTimeout() method also has the
+            same purpose in web applications. We use this to delay some kind of executions.<br>
+        <pre>
+                Syntax: setTimeout(()=>{
+                    //code
+                }, time);
+            </p>
+            </pre>
+        <pre style="color: brown; font-size: 1rem;">Example:
+            function sto(){
+            setTimeout(() => {
+            console.log("setTimeout executed") 
+            }, 7000);
+            }
+        sto();
+</pre>
+<h1 style="color: blueviolet;">*******************************************************************************************************</h1>
+        <h1>2.What is callback hell</h1>
+        <p>Callback Hell is a pattern with multiple nested callbacks which makes code hard to read and
+            debug when dealing with asynchronous logic. The callback hell looks like a pyramid structure.</p>
+
+        <pre style="color: brown; font-size: 1rem;">Example:
+                function cbhell(){
+                setTimeout(() => {
+                    console.log(1);
+                }, 1000);
+                setTimeout(() => {
+                    console.log(2);
+                }, 2000);
+                setTimeout(() => {
+                    console.log(3);
+                }, 3000);
+                setTimeout(() => {
+                    console.log(4);
+                }, 4000);
+                setTimeout(() => {
+                    console.log(5);
+                }, 5000);
+                setTimeout(() => {
+                    console.log(6);
+                }, 6000);
+                setTimeout(() => {
+                    console.log(7);
+                }, 7000);
+                
+                setTimeout(() => {
+                    console.log("8 callback end");
+                }, 8000);
+                
+            }
+            cbhell()
+        </pre>
+<h1 style="color: blueviolet;">*******************************************************************************************************</h1>
+
+
+        <h1>3.What are promises and why do we need them?</h1>
+        <p>Promises are used to handle asynchronous operations in JavaScript. They are easy to manage
+            when dealing with multiple asynchronous operations where callbacks can create callback hell
+            leading to unmanageable code.<br>
+            Multiple callback functions would create callback hell that leads to unmanageable code. Also it
+            is not easy for any user to handle multiple callbacks at the same time.
+            Events were not good at handling asynchronous operations.
+            Promises are the ideal choice for handling asynchronous operations in the simplest manner.
+            They can handle multiple asynchronous operations easily and provide better error handling
+            than callbacks and events.<br>
+            <b> A Promise is in one of these states:</b>
+            <b>pending: </b>initial state, neither fulfilled nor rejected.<br>
+            <b>fulfilled: </b> meaning that the operation was completed successfully.<br>
+            <b>rejected:</b> meaning that the operation failed.<br>
+            <b>Benefits of Promises</b>
+            1. Improves Code Readability<br>
+            2. Better handling of asynchronous operations<br>
+            3. Better flow of control definition in asynchronous logic<br>
+            4. Better Error Handlin
+        </p>
+
+<h1 style="color: blueviolet;">*******************************************************************************************************</h1>
+
+    <pre style="color: brown; font-size: 1rem;">Example:
+            const mypromise = new Promise((resolve, reject) => {
+                    var a = 10;
+                    var b = 100;
+                    if (a == b) {
+                        resolve(" they are same ")
+                    }
+                    else {
+                        reject("the are not same")
+                    }
+                })
+                
+                mypromise.then(function (data) {
+                    console.log(data)
+                }).catch(function (error) {
+                    console.log("Error is", error)
+                
+                })
+            </pre>
+        <b><u>Applications</u></b>
+        1)Promises are used for asynchronous handling of events.<br>
+        2)Promises are used to handle asynchronous http requests.<br>
+
+<h1 style="color: blueviolet;">*******************************************************************************************************</h1>
+
+        <h1>5.What is promise chaining</h1>
+        <p>The process of executing a sequence of asynchronous tasks one after another using promises is
+            known as Promise chaining. Let's take an example of promise chaining for calculating the final
+            result,</p>
+        <pre style="color: brown; font-size: 1rem;">Example:
+                const apromise= new Promise((resolve1,reject1)=>{
+                setTimeout(() => {
+                    reject1 (2)
+                }, 4000);
+            }).then(function (ress) {
+                console.log(ress)
+               return ress = ress*2
+            }).then(function (ress) {
+                console.log(ress)
+               return ress = ress*4
+            }).then(function (ress) {
+                console.log(ress)
+               return ress = ress*6
+            }).then(function (ress) {
+                console.log(ress)
+               return ress = ress*8
+            }).then(function (ress) {
+                console.log(ress)
+               return ress = ress*10
+            }).catch(function(errr){
+                console.log("error",errr)
+            })
+            
+        </pre>
+
+<h1 style="color: blueviolet;">*******************************************************************************************************</h1>
+
+        <h1>6.What is the purpose of async/await keywords?</h1>
+        <p>An async function is a function declared with the async keyword, and the await keyword is
+            permitted within it. The async and await keywords enable asynchronous, promise-based
+            behavior to be written in a cleaner style, avoiding the need promise chains.<br>
+            The use of await pauses the async function until the promise returns a result (resolve or reject)
+            value</p>
+
+    <pre style="color: brown; font-size: 1rem;">Example:
+                const aapromise = new Promise((resolve2, reject2)=>{
+                setTimeout(() => {
+                    resolve2("promise resolve")
+                }, 5000);
+            })
+            
+            async function asfyn(){
+                let data = await(aapromise);
+                console.log(data)
+            }
+            asfyn()
+        </pre>
+
+<h1 style="color: blueviolet;">*******************************************************************************************************</h1>
+
+        <h1>7.What is the DOM?</h1>
+        <p>The Document Object Model (DOM) is the data representation of the objects that comprise the
+            structure and content of a document on the web.<br>
+            The Document Object Model (DOM) is a programming interface for web documents. It
+            represents the page so that programs can change the document structure, style, and content.<br>
+            The DOM represents the document as nodes and objects; that way, programming languages can
+            interact with the page.
+        </p>
+
+<h1 style="color: blueviolet;">*******************************************************************************************************</h1>
+
+        <h1>8.Difference between undefined vs not defined vs NaN</h1>
+        <p><b>Undefined</b>
+            undefined is a global variable that JavaScript creates at run time. JavaScript assigns undefined
+            to any variable that has been declared but not initialized. In other words, in a case where no
+            value has been explicitly assigned to the variable, JavaScript calls it undefined.<br>
+            <br>
+            <b>null</b>
+            It is one of JavaScript’s primitive data type and is treated as falsy for boolean operations.null is
+            an empty or non-existent value and null must be assigned. We use null when we want to
+            explicitly declare that a variable is empty.<br>
+            <br>
+            <b>not defined</b>
+            A not defined is a variable that is not declared inside the code at a given point of time with
+            declaration keyword like var, let, or const.</p>
+    </div>
+
+</body>
+
+</html>
